@@ -1,0 +1,15 @@
+<h1>Sequel::Reporter Demo</h1>
+
+<% @query = query do %>
+  select '2012-01-01' as "Month", 22 as "Amount", 100 as "Count"
+  union all
+  select '2012-02-01' as "Month", 50 as "Amount", 105 as "Count"
+  union all
+  select '2012-03-01' as "Month", 71 as "Amount", 95 as "Count"
+<% end %>
+
+<div class="row">
+  <div class="span4">
+    <%= table @query %>
+  </div>
+</div>
