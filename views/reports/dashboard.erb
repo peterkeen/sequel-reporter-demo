@@ -10,7 +10,9 @@
 
 <div class="row">
   <div class="span4">
-    <%= table @query %>
+    <%= table(@query) do |t|
+      t.decorate :all => Sequel::Reporter::HighlightDecorator.new("#d9edf7"), :if => lambda {|c,r| r[0].value == "2012-01-01" }
+    end %>
   </div>
 </div>
 
